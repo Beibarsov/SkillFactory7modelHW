@@ -2,5 +2,5 @@
 
 class Address
 {
-
+//тест
 }
