@@ -22,5 +22,11 @@ class EatableProduct: Product
         Price = price;
         ExpirationDate = expirationDate;
     }
+
+    public bool IsEatDead(DateTime ExpirationDate){
+        if (ExpirationDate > DateTime.Now) return true;
+        else return false;
+
+    }
 }
 
