@@ -2,6 +2,6 @@
 
 abstract class Contacs
 {
-    public string Address;
-    //тест
+    
+    
 }

@@ -8,11 +8,6 @@ class Order<TDelivery, TStruct> where TDelivery : Delivery
 
     public string Description;
 
-    public void DisplayAddress()
-    {
-        Console.WriteLine(Delivery.Address);
-    }
-
     public Product[] Products;
 
     public Customer Customer;
