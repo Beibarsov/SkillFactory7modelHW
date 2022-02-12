@@ -11,5 +11,7 @@ class Order<TDelivery, TStruct> where TDelivery : Delivery
     public Product[] Products;
 
     public Customer Customer;
-    // ... Другие поля
+    
+    
+
 }
