@@ -14,6 +14,7 @@ using System.Threading.Tasks;
         public Coureir(Contacs contacs, string Fio)
     {
         Contacs = contacs;
+        this.Fio = Fio;
 
     }
 

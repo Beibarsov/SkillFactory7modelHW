@@ -1,13 +1,15 @@
 ﻿ abstract class Customer
 {
-    public Address Address;
-    public Contacs Contacs;    
+    public Address Address{get; protected set;}  
+    public Contacs Contacs {get; protected set;}   
+    public Contacs Fio {get; protected set;}    
 
     public Customer(Address address, Contacs contacs)
     {
         Address = address;
         Contacs = contacs;
     }
+
 }
 
 //Корпоративный заказчик
@@ -20,6 +22,8 @@ class CorpCustomer : Customer
         Contacs = contacs;
         CorpName = CorpName;
     }
+
+
     
 }
 //Заказчик физическое лицо

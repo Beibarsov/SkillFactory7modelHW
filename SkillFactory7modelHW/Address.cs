@@ -28,4 +28,9 @@ class AppartamentAddress : Address
         Home = home;
         Appartament = appartament;
     }
+
+
+        public override string ToString(){
+        return City + " " + Street + " " + Home + " " + Appartament;
+    }
 }

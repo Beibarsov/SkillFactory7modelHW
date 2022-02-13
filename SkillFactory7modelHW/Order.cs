@@ -1,6 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-class Order<TDelivery, TStruct> where TDelivery : Delivery
+class Order<TDelivery, Tproduct, TCustomer> 
+
+    where TDelivery : Delivery<Customer>
+    where Tproduct : Product
+    
 {
     public TDelivery Delivery;
 
@@ -10,7 +14,7 @@ class Order<TDelivery, TStruct> where TDelivery : Delivery
 
     public Product[] Products;
 
-    public Customer Customer;
+    public TCustomer Customer;
     
     
 
