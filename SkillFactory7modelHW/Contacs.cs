@@ -3,5 +3,6 @@
 class Contacs
 {
     public string Phone;    
+    public string Email;
     
 }

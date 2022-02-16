@@ -2,7 +2,10 @@
 {
     public Address Address{get; protected set;}  
     public Contacs Contacs {get; protected set;}   
-    public Contacs Fio {get; protected set;}    
+
+   
+
+    static public int CustomerCount;
 
     public Customer(Address address, Contacs contacs)
     {
@@ -26,14 +29,32 @@ class CorpCustomer : Customer
 
     
 }
+
 //Заказчик физическое лицо
 class IndivCustomer : Customer
 {
     public string Fio;
-    public IndivCustomer(Address address, Contacs contacs, string fio) : base(address, contacs)
+    private int age;
+
+    public int Age
     {
+        get
+        {
+            return age;
+        }
+        set
+        {
+            if (Age > 18) this.Age = value;
+        }
+    }
+    public IndivCustomer(Address address, Contacs contacs, int age, string fio) : base(address, contacs)
+    { 
+        
         Address = address;
         Contacs = contacs;
         Fio = fio;
-    }
+ }
 }
+
+
+

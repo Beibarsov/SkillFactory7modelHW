@@ -17,6 +17,10 @@ using System.Threading.Tasks;
         this.Fio = Fio;
 
     }
+        public void GoToWay()
+    {
+        Console.WriteLine("Курьер поехал на доставку");
+    }
 
     }
 

@@ -4,10 +4,12 @@ abstract class Delivery<TCustomer> where TCustomer : Customer
     public bool isReady = false;
     public bool isAwait = false;
     public TCustomer Customer { get; set; }
+
+    public abstract void InfoAboutCourier();
 }
 class HomeDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Customer
 {
-    public TCustomer Customer { get; set; }
+    public IndivCustomer Customer { get; set; }
     public Coureir Coureir { get; set; }
 
 
@@ -52,10 +54,12 @@ class HomeDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Customer
         
 
     }
-
-    public void InfoAboutCourier(){
+    public override void InfoAboutCourier()
+    {
         Console.WriteLine($"Доставку обеспечивает курьер {Coureir.Fio}");
     }
+
+
 }
 
 class PickPointDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Customer
@@ -63,7 +67,7 @@ class PickPointDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Custo
 
     public DateTime StoragePeriod = DateTime.Now.Date.AddDays(7);
     public Address Address;
-    public Customer Customer;
+    public IndivCustomer Customer;
     public bool isAwait = false;
 
 
@@ -99,13 +103,37 @@ class PickPointDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Custo
         Console.WriteLine("Поступило подтверждение о забранном заказе по одному из каналов. Доставку можно считать исполненной.");
         isReady = true;
     }
+    public override void InfoAboutCourier()
+    {
+        Console.WriteLine("Запрашиваем информацию о курьере из компании");
+    }
 
-    
+
 }
 
 class ShopDelivery<TCustomer> : Delivery<TCustomer> where TCustomer : Customer
 {
 
-    /* ... */
+    public CorpCustomer Customer;
+    public  Coureir Coureir;
+
+    public void DeliveryToPicPoint()
+    {
+        Console.WriteLine($"Курьер отвозит заказ на адресс {Customer.Address.ToString}");
+
+
+    }
+    public override void InfoAboutCourier()
+    {
+        Console.WriteLine($"Доставку обеспечивает курьер {Coureir.Fio}");
+    }
+
+
+    public void IsDone()
+    {
+        Console.WriteLine($"Курьер {Coureir.Fio} сказал что всё готово. Магазин {Customer.CorpName}. Доставку можно считать исполненной.");
+        isReady = true;
+    }
+
 }
 
