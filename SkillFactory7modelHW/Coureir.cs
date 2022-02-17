@@ -24,3 +24,40 @@ using System.Threading.Tasks;
 
     }
 
+/// <summary>
+/// Класс-коллекция с коллекцией курьеров
+/// </summary>
+    class CourierCompany{
+    protected Coureir[] courierList;
+
+    public CourierCompany(Coureir[] collection)
+    {
+        courierList = collection;
+    }
+
+    public Coureir this[int index]
+    {
+        get
+        {
+            if (index >= 0 && index < courierList.Length)
+            {
+                return courierList[index];
+            }
+            else
+            {
+                return null;
+            }
+        }
+        private set
+        {
+            if (index >= 0 && index < courierList.Length)
+            {
+                courierList[index] = value;
+            }
+        }
+    }
+
+
+
+
+}
